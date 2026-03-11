@@ -25,20 +25,30 @@ navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
 
-        // Remove 'active' class from all links and sections
         navLinks.forEach(lnk => lnk.classList.remove('active'));
         sections.forEach(sec => sec.classList.remove('active'));
 
-        // Add 'active' class to the clicked link
         this.classList.add('active');
 
-        // Get the target section ID from href and make it active
         const targetId = this.getAttribute('href').replace('#', '');
-        // For the "Home" link which has href="#", we handle it specifically
         if (targetId === "") {
             document.querySelector('.home').classList.add('active');
         } else {
-            document.getElementById(targetId).classList.add('active');
+            const target = document.getElementById(targetId);
+            if (target) target.classList.add('active');
         }
+    });
+});
+
+// Mobile menu toggle
+const menuIcon = document.getElementById('menu-icon');
+menuIcon.addEventListener('click', () => {
+    document.querySelector('nav').classList.toggle('open');
+});
+
+// Close menu on nav link click
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('open');
     });
 });
