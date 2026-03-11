@@ -693,3 +693,11 @@ section.active {
         gap: .5rem;
     }
 }
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.4rem;
+    color: var(--disabled-color);
+    background: var(--bg-color);
+}

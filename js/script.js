@@ -52,3 +52,5 @@ navLinks.forEach(link => {
         document.querySelector('nav').classList.remove('open');
     });
 });
+
+document.getElementById('year').textContent = new Date().getFullYear();
